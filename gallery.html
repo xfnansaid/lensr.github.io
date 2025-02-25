@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lensr Studio - Gallery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#D4B675",
+              secondary: "#1A1A1A",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      body {
+        background-color: #050505;
+        color: #fff;
+        font-family: "Inter", sans-serif;
+      }
+      .playfair {
+        font-family: "Playfair Display", serif;
+      }
+      .nav-link {
+        position: relative;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: -4px;
+        left: 0;
+        background-color: #d4b675;
+        transition: width 0.3s ease;
+      }
+      .nav-link:hover::after {
+        width: 100%;
+      }
+      .masonry-grid {
+        column-gap: 1.5rem;
+        column-count: 1;
+      }
+      @media (min-width: 640px) {
+        .masonry-grid {
+          column-count: 2;
+        }
+      }
+      @media (min-width: 1024px) {
+        .masonry-grid {
+          column-count: 3;
+        }
+      }
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 1.5rem;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+      }
+      @keyframes fadeInUp {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .gallery-item {
+        position: relative;
+        overflow: hidden, rounded-lg;
+        transition: all 0.3s ease;
+      }
+      .gallery-item:hover {
+        transform: scale(1.05);
+      }
+      .gallery-item img {
+        transition: transform 0.5s ease;
+      }
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+      .gallery-item .overlay {
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .gallery-item:hover .overlay {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="fixed w-full bg-secondary/80 backdrop-blur-md z-50 shadow-md">
+      <div class="max-w-7xl mx-auto px-6 py-6">
+        <div class="flex justify-between items-center">
+          <a href="#" class="text-4xl font-['Pacifico'] text-primary">Lensr</a>
+          <div class="hidden md:flex space-x-10">
+            <a
+              href="#home"
+              class="nav-link text-white hover:text-primary transition-colors font-medium"
+              >Home</a
+            >
+            <a
+              href="#work-display"
+              class="nav-link text-white hover:text-primary transition-colors font-medium"
+              >Portfolio</a
+            >
+            <a
+              href="#services"
+              class="nav-link text-white hover:text-primary transition-colors font-medium"
+              >Services</a
+            >
+            <a
+              href="#about"
+              class="nav-link text-white hover:text-primary transition-colors font-medium"
+              >About</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-white hover:text-primary transition-colors font-medium"
+              >Contact</a
+            >
+            <a
+              href="#gallery"
+              class="nav-link text-white hover:text-primary transition-colors font-medium"
+              >Gallery</a
+            >
+          </div>
+          <button class="md:hidden w-10 h-10 flex items-center justify-center">
+            <i class="ri-menu-line text-2xl text-white"></i>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <section id="gallery" class="pt-32 pb-24 min-h-screen">
+      <div class="max-w-7xl mx-auto px-6">
+        <h1
+          class="playfair text-5xl md:text-7xl font-bold text-white mb-20 text-center"
+        >
+          Lensr Gallery
+        </h1>
+        <div class="masonry-grid">
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.1s;">
+            <img
+              src="https://public.readdy.ai/ai/img_res/5fa9e994ed400c0c1aa5cfe8b8f5a45f.jpg"
+              alt="Wedding Photography"
+              class="w-full h-[450px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">Wedding Bliss</h3>
+                <p class="text-sm">Sharjah, 2024</p>
+              </div>
+            </div>
+          </div>
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.2s;">
+            <img
+              src="https://public.readdy.ai/ai/img_res/72a307b496894f4f80b0f9beb3fb9e83.jpg"
+              alt="Fashion Photography"
+              class="w-full h-[350px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">Fashion Edge</h3>
+                <p class="text-sm">Dubai, 2023</p>
+              </div>
+            </div>
+          </div>
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.3s;">
+            <img
+              src="https://public.readdy.ai/ai/img_res/4657e92e41974d9f79f682d66c365b91.jpg"
+              alt="Corporate Photography"
+              class="w-full h-[400px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">Corporate Vision</h3>
+                <p class="text-sm">Sharjah, 2024</p>
+              </div>
+            </div>
+          </div>
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.4s;">
+            <img
+              src="https://public.readdy.ai/ai/img_res/5a84afbb64ecafa616519f5b4214bb8a.jpg"
+              alt="Event Photography"
+              class="w-full h-[500px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">Golden Moments</h3>
+                <p class="text-sm">Sharjah, 2025</p>
+              </div>
+            </div>
+          </div>
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.5s;">
+            <img
+              src="https://public.readdy.ai/ai/img_res/b976588936b01e9daed0fa65872b9a64.jpg"
+              alt="Studio Shoot"
+              class="w-full h-[380px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">Studio Art</h3>
+                <p class="text-sm">Sharjah, 2024</p>
+              </div>
+            </div>
+          </div>
+          <!-- Add more gallery items as needed -->
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.3s;">
+            <img
+              src="https://images.unsplash.com/photo-1673289072037-de784a40c145?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Corporate Photography"
+              class="w-full h-[400px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">Birthday Photography</h3>
+                <p class="text-sm">Ajman, 2024</p>
+              </div>
+            </div>
+          </div>
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.3s;">
+            <img
+              src="https://images.unsplash.com/photo-1512141633501-8eb74114f568?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Corporate Photography"
+              class="w-full h-[400px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">People</h3>
+                <p class="text-sm">UAQ, 2021</p>
+              </div>
+            </div>
+          </div>
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.3s;">
+            <img
+              src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Corporate Photography"
+              class="w-full h-[400px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">Business & Work</h3>
+                <p class="text-sm">Sharjah, 2025</p>
+              </div>
+            </div>
+          </div>
+          <div class="masonry-item gallery-item rounded-lg" style="animation-delay: 0.3s;">
+            <img
+              src="https://images.unsplash.com/photo-1482267553367-e79b27d2bba1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Corporate Photography"
+              class="w-full h-[400px] object-cover"
+              loading="lazy"
+            />
+            <div class="overlay">
+              <div class="text-center text-white">
+                <h3 class="text-xl font-bold">Couple photography</h3>
+                <p class="text-sm">Dubai, 2023</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-16 bg-[#050505]">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <a href="#" class="text-4xl font-['Pacifico'] text-primary mb-8 md:mb-0"
+            >Lensr</a
+          >
+          <p class="text-gray-400 text-center md:text-left font-light">
+            © 2025 Lensr Studio. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            if (targetId === "#gallery") {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            } else {
+              window.location.href = "/"; // Redirect to homepage for other links
+            }
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
